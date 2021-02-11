@@ -22,4 +22,13 @@ function plusMinus(arr) {
 
 }
 
-plusMinus([1 ,-2, -7, 9, 1, -8, -5])
+// plusMinus([1 ,-2, -7, 9, 1, -8, -5])
+
+function Starts(n){
+  for(let i =1; i <= n; i++){
+    console.log('#'.repeat(i).padStart(n));
+  }
+}
+
+Starts(1)
+
