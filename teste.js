@@ -30,5 +30,22 @@ function Starts(n){
   }
 }
 
-Starts(1)
+// Starts(1)
 
+
+function miniMaxSum(arr) {
+
+  const minimum = [...arr].sort();
+  const maximum = [...arr].sort();
+
+  minimum.pop();
+  const valueMinimum = minimum.reduce((prev, next) => prev + next);
+
+  maximum.shift();
+  const valueMaximum = maximum.reduce((prev, next) => prev + next);
+
+  console.log(`${valueMinimum} ${valueMaximum}`)
+
+}
+
+miniMaxSum([396285104, 573261094, 759641832, 819230764, 364801279])
