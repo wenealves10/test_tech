@@ -33,8 +33,6 @@ function Starts(n){
   }
 }
 
-// Starts(1)
-
 
 function miniMaxSum(arr) {
 
@@ -73,6 +71,40 @@ function diagonalDifference(arr) {
 }
 
 
+function solve(meal_cost, tip_percent, tax_percent) {
+  const foodTip = meal_cost * tip_percent / 100;
+  const foodTax = meal_cost * tax_percent / 100;
+
+  const valueTotal = Math.round(meal_cost + foodTax + foodTip);
+
+  return valueTotal;
+
+}
+
+
+function birthdayCakeCandles(candles) {
+
+  let candleTallest = 0;
+  let candleCount = 0;
+
+  for(let index in candles){
+    if(candles[index] > candleTallest){
+      candleTallest = candles[index];
+    }
+  }
+
+  for(let index in candles){
+    if(candles[index] === candleTallest){
+      candleCount++;
+    }
+  }
+
+  return candleCount;
+
+}
+
+
+
 describe('HackerRank Challenges', () =>{
   it('must return the sum of the matrix diagonals and the difference between them', () =>{
     const expected = 15;
@@ -82,7 +114,7 @@ describe('HackerRank Challenges', () =>{
       [4, 5, 6],
       [10, 8, -12]
       ]);
-    assert.strictEqual(result, expected);
+    assert.deepStrictEqual(result, expected);
 
   });
 
@@ -91,9 +123,9 @@ describe('HackerRank Challenges', () =>{
 
     const result = miniMaxSum([396285104, 573261094, 759641832, 819230764, 364801279]);
 
-    assert.strictEqual(result, expected);
+    assert.deepStrictEqual(result, expected);
 
-  })
+  });
 
   it('The proportion of positive, negative and zero numbers must be returned', () => {
     const expected = { positives: '0.428571', negatives: '0.571429', zeros: '0.000000' };
@@ -102,5 +134,25 @@ describe('HackerRank Challenges', () =>{
 
     assert.deepEqual(result, expected);
 
-  })
+  });
+
+  it('The total value of the food must be returned with a tip and taxes', () =>{
+    const expected = 15;
+
+    const result = solve(12.00, 20, 8);
+
+    assert.deepStrictEqual(result, result);
+
+  });
+
+  it('Return the tallest candle on the cake', () =>{
+    const expected = 5;
+
+    const result = birthdayCakeCandles([18, 90, 90, 13, 90, 75, 90, 8, 90, 43]);
+
+    assert.deepStrictEqual(result, expected);
+
+  });
+
+
 });
