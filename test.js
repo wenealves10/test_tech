@@ -104,6 +104,24 @@ function birthdayCakeCandles(candles) {
 }
 
 
+function main(n) {
+  const N = n;
+
+  if(N % 2 !== 0){
+    return 'Weird';
+  }
+  else if(N >= 2 && N < 5){
+    return 'Not Weird';
+  }
+  else if(N >= 6 && N <= 20){
+    return 'Weird';
+  }else{
+    return 'Not Weird'
+  }
+
+}
+
+
 
 describe('HackerRank Challenges', () =>{
   it('must return the sum of the matrix diagonals and the difference between them', () =>{
@@ -153,6 +171,15 @@ describe('HackerRank Challenges', () =>{
     assert.deepStrictEqual(result, expected);
 
   });
+
+  it('Returns whether the number is odd or even', () =>{
+    const expected = 'Weird';
+
+    const result = main(20);
+
+    assert.deepStrictEqual(result, expected);
+
+  })
 
 
 });
