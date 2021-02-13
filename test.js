@@ -122,6 +122,21 @@ function main(n) {
 }
 
 
+function timeConversion(s) {
+  const AMPM = s.slice(-2);
+
+  let timeArr = s.slice(0, -2).split(":");
+
+  if(AMPM === 'AM' && timeArr[0] === '12'){
+    timeArr[0] = '00';
+  }else if (AMPM === "PM") {
+    timeArr[0] = (timeArr[0] % 12) + 12
+  }
+
+  return timeArr.join(":");
+
+}
+
 
 describe('HackerRank Challenges', () =>{
   it('must return the sum of the matrix diagonals and the difference between them', () =>{
@@ -176,6 +191,15 @@ describe('HackerRank Challenges', () =>{
     const expected = 'Weird';
 
     const result = main(20);
+
+    assert.deepStrictEqual(result, expected);
+
+  });
+
+  it('Return to the time formatted in military time (24 hours)', () => {
+    const expected = '19:05:45';
+
+    const result = timeConversion('07:05:45PM');
 
     assert.deepStrictEqual(result, expected);
 
