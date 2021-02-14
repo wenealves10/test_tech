@@ -137,6 +137,32 @@ function timeConversion(s) {
 
 }
 
+class Person{
+  constructor(initialAge){
+    this.age = initialAge < 0 ? 0 : initialAge;
+    if(this.age === 0){
+      console.log('Age is not valid, setting age to 0.');
+    }
+  }
+  yearPasses(){
+    this.age += 1;
+  }
+
+  amIOld(){
+    if(this.age < 13){
+      console.log('You are young.');
+    }else if(this.age >= 13 && this.age < 18){
+      console.log('You are a teenager.');
+    }else{
+      console.log('You are old.');
+    }
+  }
+
+}
+
+const person = new Person(12);
+person.amIOld();
+console.log(person)
 
 describe('HackerRank Challenges', () =>{
   it('must return the sum of the matrix diagonals and the difference between them', () =>{
