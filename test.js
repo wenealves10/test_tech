@@ -207,6 +207,43 @@ function gradingStudents2(grades){
 }
 
 
+function countApplesAndOranges(s, t, a, b, apples, oranges) {
+
+  let pointS = s, pointT = t;
+  let pointA = a, pointB = b;
+  const arrayApples = [...apples];
+  const arrayOranges = [...oranges];
+  let fallenApples = [];
+  let fallenOranges = [];
+
+  let applesAtHome = 0;
+  let orangesAtHome = 0;
+
+  fallenApples = arrayApples.map((distance) => pointA + distance);
+  fallenOranges = arrayOranges.map((distance) => pointB + distance);
+
+  for(let apple of fallenApples){
+    if(apple >= pointS && apple <= pointT){
+      applesAtHome++;
+    }
+  }
+
+  for(let orange of fallenOranges){
+    if(orange >= pointS && orange <= pointT){
+      orangesAtHome++;
+    }
+  }
+
+
+  return {
+    applesAtHome,
+    orangesAtHome
+  }
+
+}
+
+
+
 describe('HackerRank Challenges', () =>{
   it('must return the sum of the matrix diagonals and the difference between them', () =>{
     const expected = 15;
@@ -272,10 +309,16 @@ describe('HackerRank Challenges', () =>{
 
     const result = gradingStudents1([1,2,74,58,36,37,45,68,98,71,99,123,100,0,0]);
 
-console.log('expected',expected, expected.length)
-console.log('result',result, expected.length)
+    assert.deepStrictEqual(result, expected);
+  });
+
+  it('It must return how many apples and oranges fell in Sam\'s house', () => {
+    const expected = {applesAtHome: 1, orangesAtHome: 1};
+
+    const result = countApplesAndOranges(7, 11, 5, 15, [-2, 2, 1],[5, -6])
 
     assert.deepStrictEqual(result, expected);
+
   });
 
 });
