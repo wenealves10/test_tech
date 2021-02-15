@@ -160,9 +160,52 @@ class Person{
 
 }
 
-const person = new Person(12);
-person.amIOld();
-console.log(person)
+function gradingStudents1(grades) {
+
+  let result = 0;
+  let resultDivision = 0;
+  let minimumResult = 0;
+
+  return grades.map((note) => {
+
+    if(note >= 38 && note < 100){
+
+      resultDivision = note / 5;
+
+      result = (Math.floor(resultDivision) + 1) * 5;
+
+      minimumResult = result - note;
+
+      if(minimumResult < 3){
+        result = result;
+      }else{
+        result = note;
+      }
+
+      return result;
+
+    }else if (note >= 0 && note <= 37){
+      return note;
+    }else if (note >= 100){
+      return 100;
+    }
+
+  })
+
+
+}
+
+function gradingStudents2(grades){
+  return grades.map((n) => {
+      let diff = 5 - (n % 5);
+      if(diff < 3 && n >= 38) {
+          n += diff;
+      }
+
+      return n;
+  })
+}
+
 
 describe('HackerRank Challenges', () =>{
   it('must return the sum of the matrix diagonals and the difference between them', () =>{
@@ -174,7 +217,6 @@ describe('HackerRank Challenges', () =>{
       [10, 8, -12]
       ]);
     assert.deepStrictEqual(result, expected);
-
   });
 
   it('Must return the maximum and minimum of this array of integers', () => {
@@ -183,7 +225,6 @@ describe('HackerRank Challenges', () =>{
     const result = miniMaxSum([396285104, 573261094, 759641832, 819230764, 364801279]);
 
     assert.deepStrictEqual(result, expected);
-
   });
 
   it('The proportion of positive, negative and zero numbers must be returned', () => {
@@ -192,7 +233,6 @@ describe('HackerRank Challenges', () =>{
     const result = plusMinus([1 ,-2, -7, 9, 1, -8, -5]);
 
     assert.deepEqual(result, expected);
-
   });
 
   it('The total value of the food must be returned with a tip and taxes', () =>{
@@ -201,7 +241,6 @@ describe('HackerRank Challenges', () =>{
     const result = solve(12.00, 20, 8);
 
     assert.deepStrictEqual(result, result);
-
   });
 
   it('Return the tallest candle on the cake', () =>{
@@ -210,7 +249,6 @@ describe('HackerRank Challenges', () =>{
     const result = birthdayCakeCandles([18, 90, 90, 13, 90, 75, 90, 8, 90, 43]);
 
     assert.deepStrictEqual(result, expected);
-
   });
 
   it('Returns whether the number is odd or even', () =>{
@@ -219,7 +257,6 @@ describe('HackerRank Challenges', () =>{
     const result = main(20);
 
     assert.deepStrictEqual(result, expected);
-
   });
 
   it('Return to the time formatted in military time (24 hours)', () => {
@@ -228,8 +265,17 @@ describe('HackerRank Challenges', () =>{
     const result = timeConversion('07:05:45PM');
 
     assert.deepStrictEqual(result, expected);
+  });
 
-  })
+  it('Notes should be returned after rounding, as appropriate', () => {
+    const expected = [1,2,75,60,36,37,45,70,100,71,100,100,100,0,0];
 
+    const result = gradingStudents1([1,2,74,58,36,37,45,68,98,71,99,123,100,0,0]);
+
+console.log('expected',expected, expected.length)
+console.log('result',result, expected.length)
+
+    assert.deepStrictEqual(result, expected);
+  });
 
 });
