@@ -31,6 +31,6 @@ function processData1(input) {
   });
 }
 
-processData('2\nhacker\nrank')
+processData('4\nhacker\nrank\nwene\nalves\noliveira')
 
 // console.log(processData('2\nhacker\nrank'))
