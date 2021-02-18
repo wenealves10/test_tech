@@ -294,6 +294,37 @@ function breakingRecords(scores) {
 
 }
 
+function birthday(s, d, m) {
+
+  if(!Array.isArray(s)){
+    throw Error('Must be an array');
+  }
+
+  const chocolateSquare = [...s];
+  const month = parseInt(m, 10);
+  const day = parseInt(d, 10);
+  let shareAmount = 0;
+
+  if(month > 12){
+    throw Error('must be a valid month');
+  }
+
+  if(day > 31){
+    throw Error('Must be a valid day');
+  }
+
+  for(let index =0; index < chocolateSquare.length; index++){
+     if(chocolateSquare.slice(index, index + month).reduce((prev, next) => prev + next) === day){
+      shareAmount++;
+    }
+
+  }
+
+
+  return shareAmount;
+
+}
+
 
 describe('HackerRank Challenges', () =>{
   it('must return the sum of the matrix diagonals and the difference between them', () =>{
@@ -398,5 +429,14 @@ describe('HackerRank Challenges', () =>{
     assert.deepStrictEqual(result, expected);
 
   });
+
+  it('Must return the sum of the segments', () => {
+    const expected = 3;
+
+    const result = birthday([5 ,5 ,3 ,2 ,2 ,2 ,1 ,2 ,5 ,3 ,5 ,5 ,4 ,3 ,3 ,5],13,3);
+
+    assert.deepStrictEqual(result, expected);
+
+  })
 
 });
