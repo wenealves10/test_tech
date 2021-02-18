@@ -397,6 +397,6 @@ describe('HackerRank Challenges', () =>{
 
     assert.deepStrictEqual(result, expected);
 
-  })
+  });
 
 });
