@@ -269,6 +269,31 @@ function getTotalX(a, b) {
   return validCount;
 }
 
+function breakingRecords(scores) {
+
+  let scoresArray = [...scores];
+  let lowestPoints = scoresArray[0];
+  let biggestPoints = scoresArray[0];
+  let highestRecordNumbers = 0;
+  let recordLowNumbers = 0;
+
+  for(let index in scoresArray){
+    if(lowestPoints > scoresArray[index]){
+      lowestPoints = scoresArray[index];
+      recordLowNumbers++;
+    }
+
+    if(biggestPoints < scoresArray[index]){
+      biggestPoints = scoresArray[index];
+      highestRecordNumbers++;
+    }
+
+  }
+
+  return [highestRecordNumbers, recordLowNumbers];
+
+}
+
 
 describe('HackerRank Challenges', () =>{
   it('must return the sum of the matrix diagonals and the difference between them', () =>{
@@ -360,6 +385,15 @@ describe('HackerRank Challenges', () =>{
     const expected = 2;
 
     const result = getTotalX([2, 6], [24, 36]);
+
+    assert.deepStrictEqual(result, expected);
+
+  });
+
+  it('Record high and low numbers should return', () =>{
+    const expected = [2,4];
+
+    const result = breakingRecords([10, 5, 20, 20, 4, 5, 2, 25, 1]);
 
     assert.deepStrictEqual(result, expected);
 
