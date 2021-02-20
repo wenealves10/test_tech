@@ -343,6 +343,14 @@ function divisibleSumPairs(n, k, ar) {
 
 }
 
+function migratoryBirds(arr) {
+  let spotted = new Array(5).fill(0);
+
+  for (let bird of arr) ++spotted[bird - 1];
+
+  return spotted.indexOf(Math.max(...spotted)) + 1;
+}
+
 
 describe('HackerRank Challenges', () =>{
   it('must return the sum of the matrix diagonals and the difference between them', () =>{
@@ -464,6 +472,12 @@ describe('HackerRank Challenges', () =>{
 
     assert.deepStrictEqual(result, expected);
 
+  });
+
+  it('Must return the lowest id of most viewed birds', () => {
+    const expected = 2;
+    const result = migratoryBirds([1, 2, 3, 4, 5, 4, 3, 3, 2, 1, 3, 4, 4, 2, 2]);
+    assert.deepStrictEqual(result, expected);
   });
 
 });
