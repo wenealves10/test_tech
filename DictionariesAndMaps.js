@@ -23,6 +23,20 @@ function processData(input) {
 
 }
 
+processData(`3\nmateus 99912222\npedro 11122222\njoão 12299933\npedro\nedward\nmateus\nwene`);
+
+// RESULT //
+/*
+  pedro=11122222
+  Not found
+  mateus=99912222
+  Not found
+ */
+
+// Autor Wene Alves de Oliveira
+// GitHub para mais projetos https://github.com/wenealves10
+
+
 function processData1(input) {
 
   var tempArray = input.split("\n");
@@ -44,5 +58,4 @@ function processData1(input) {
   }
 }
 
-processData(`3\nsam 99912222\ntom 11122222\nharry 12299933\nsam\nedward\nharry\nwene`)
 processData1(`3\nsam 99912222\ntom 11122222\nharry 12299933\nsam\nedward\nharry`)
