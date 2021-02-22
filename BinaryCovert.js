@@ -20,5 +20,5 @@ function main(n) {
 
 }
 
-console.log(main(125))
-console.log(main(524283))
+console.log(main(125)) // Result is => { numbersGroupOne: 5, numberBinary: '1111101' }
+console.log(main(524283)) // { numbersGroupOne: 16, numberBinary: '1111111111111111011' }
