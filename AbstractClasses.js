@@ -13,7 +13,6 @@ class Book {
       console.log('Implement the \'display\' method!')
   }
 }
-
 class MyBook extends Book {
     constructor(title, author, price){
         super(title, author);
@@ -28,5 +27,9 @@ class MyBook extends Book {
 }
 
 const myBook = new MyBook('Livro Java', 'Wene Alves', 14.54);
-
 myBook.display();
+/*
+Title: Livro Java
+Author: Wene Alves
+Price: 14.54
+*/
