@@ -24,4 +24,4 @@ function dayOfProgrammer(year) {
 
 }
 
-console.log(dayOfProgrammer(1918))
+console.log(dayOfProgrammer(1918));
