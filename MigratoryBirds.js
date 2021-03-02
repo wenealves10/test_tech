@@ -36,8 +36,11 @@ function migratoryBirds2(arr) {
     }
     return acc
   }, {})
+  console.log('Freq', freqObject)
   const highest = Math.max(...Object.values(freqObject))
+  console.log('Highest', highest)
   const types = Object.keys(freqObject)
+  console.log('Types', types)
   let mostCommon = []
   types.forEach(type => {
     if (freqObject[type] === highest) mostCommon.push(type)
