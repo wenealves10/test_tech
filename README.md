@@ -1,1 +1,1 @@
-# HackerRank Completed Challenges
+# HackerRank Completed Challenges 🥇
