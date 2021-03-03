@@ -354,7 +354,27 @@ function migratoryBirds(arr) {
 function pageCount(n, p) {
   const pagesCount = Math.floor(parseInt(n, 10)/2);
   const pageForGo = Math.floor(parseInt(p, 10)/2);
+
   return Math.min(pageForGo, pagesCount - pageForGo);
+}
+
+function countingValleys(steps, path) {
+  const stepsTaken = parseInt(steps, 10);
+  const arrayPath  = [...path];
+  let currLevel = 0;
+  let valleys = 0;
+
+  arrayPath.forEach(element => {
+    if(element === 'U'){
+      currLevel++;
+      currLevel === 0 && valleys++;
+    }else{
+      currLevel--;
+    }
+  });
+
+
+  return valleys;
 }
 
 
