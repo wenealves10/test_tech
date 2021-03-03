@@ -493,6 +493,14 @@ describe('HackerRank Challenges', () =>{
 
     assert.deepStrictEqual(result, expected);
 
-  })
+  });
+
+  it("A mountain is a sequence of consecutive steps above sea level, starting with a step up from sea level and ending with a step down to sea level.", () => {
+    const expected = 1;
+
+    const result = countingValleys(8, 'UDDDUDUU');
+
+    assert.deepStrictEqual(result, expected);
+  });
 
 });
