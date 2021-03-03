@@ -351,6 +351,12 @@ function migratoryBirds(arr) {
   return spotted.indexOf(Math.max(...spotted)) + 1;
 }
 
+function pageCount(n, p) {
+  const pagesCount = Math.floor(parseInt(n, 10)/2);
+  const pageForGo = Math.floor(parseInt(p, 10)/2);
+  return Math.min(pageForGo, pagesCount - pageForGo);
+}
+
 
 describe('HackerRank Challenges', () =>{
   it('must return the sum of the matrix diagonals and the difference between them', () =>{
@@ -479,5 +485,14 @@ describe('HackerRank Challenges', () =>{
     const result = migratoryBirds([1, 2, 3, 4, 5, 4, 3, 3, 2, 1, 3, 4, 4, 2, 2]);
     assert.deepStrictEqual(result, expected);
   });
+
+  it('Given n and p, find and print the minimum number of pages that must be turned to reach page p. ', () => {
+    const expected = 1;
+
+    const result = pageCount(6,2);
+
+    assert.deepStrictEqual(result, expected);
+
+  })
 
 });
