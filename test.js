@@ -377,6 +377,11 @@ function countingValleys(steps, path) {
   return valleys;
 }
 
+const getMoneySpent = (keyboards, drives, budget) => {
+  return keyboards.reduce((prev, next) =>
+  Math.max(prev, ...drives.map(item => item + next).filter(total => budget >= total)), -1);
+}
+
 
 describe('HackerRank Challenges', () =>{
   it('must return the sum of the matrix diagonals and the difference between them', () =>{
@@ -521,6 +526,15 @@ describe('HackerRank Challenges', () =>{
     const result = countingValleys(8, 'UDDDUDUU');
 
     assert.deepStrictEqual(result, expected);
+  });
+
+  it('Given price lists for keyboards and USB drives and a budget, find the cost to buy them. If it is not possible to buy both items, return -1.', () => {
+    const expected = -1;
+
+    const result = getMoneySpent([4],[5],5);
+
+    assert.deepStrictEqual(result, expected);
+
   });
 
 });
