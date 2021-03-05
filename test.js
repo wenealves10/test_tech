@@ -382,6 +382,23 @@ const getMoneySpent = (keyboards, drives, budget) => {
   Math.max(prev, ...drives.map(item => item + next).filter(total => budget >= total)), -1);
 }
 
+function catAndMouse(x, y, z) {
+  const catA = parseInt(x, 10);
+  const catB = parseInt(y, 10);
+  const mouse = parseInt(z, 10);
+
+  const positionCatA = Math.abs(mouse - catA);
+  const positionCatB = Math.abs(mouse - catB);
+
+  if(positionCatA < positionCatB){
+    return 'Cat A';
+  }else if(positionCatA > positionCatB){
+    return 'Cat B';
+  }else{
+    return 'Mouse C';
+  }
+}
+
 
 describe('HackerRank Challenges', () =>{
   it('must return the sum of the matrix diagonals and the difference between them', () =>{
@@ -536,5 +553,14 @@ describe('HackerRank Challenges', () =>{
     assert.deepStrictEqual(result, expected);
 
   });
+
+  it('Two cats and a mouse are at various positions on a line. You will be given their starting positions. Your task is to determine which cat will reach the mouse first', () => {
+    const expected = 'Cat B';
+
+    const result = catAndMouse(1 ,2 ,3);
+
+    assert.deepStrictEqual(result, expected);
+
+  })
 
 });
