@@ -399,6 +399,26 @@ function catAndMouse(x, y, z) {
   }
 }
 
+function formingMagicSquare(s) {
+
+  let n = 8, costs = Array(n).fill(0), magic = [[4, 3, 8], [9, 5, 1], [2, 7, 6]];
+
+for (let i = 0; i < n; i++) {
+  const isEven = i % 2 === 0;
+
+  magic.forEach(([ a, b, c ], j) => {
+      costs[i] += Math.abs(s[isEven ? 0 : 2][j] - a);
+      costs[i] += Math.abs(s[1][j] - b);
+      costs[i] += Math.abs(s[isEven ? 2 : 0][j] - c);
+  })
+
+  if (isEven) s = [0, 1, 2].map(j => [s[2][j], s[1][j], s[0][j]]);
+}
+
+ return Math.min(...costs);
+
+}
+
 
 describe('HackerRank Challenges', () =>{
   it('must return the sum of the matrix diagonals and the difference between them', () =>{
@@ -561,6 +581,14 @@ describe('HackerRank Challenges', () =>{
 
     assert.deepStrictEqual(result, expected);
 
-  })
+  });
+
+  it("The resulting magic square must contain distinct integers in the inclusive range", () => {
+    const expected = 7;
+
+    const result = formingMagicSquare([[5, 3, 4], [1, 5, 8], [6, 4, 2]]);
+
+    assert.deepStrictEqual(result, expected);
+  });
 
 });
