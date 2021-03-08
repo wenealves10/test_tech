@@ -419,6 +419,16 @@ for (let i = 0; i < n; i++) {
 
 }
 
+function pickingNumbers(a) {
+  const arrayA = [...a];
+  let maxCount = 0;
+  arrayA.forEach(element => {
+      maxCount = Math.max(maxCount,
+          arrayA.reduce((current, next) => current += (next === element || next === element + 1) , 0));
+  })
+  return maxCount;
+}
+
 
 describe('HackerRank Challenges', () =>{
   it('must return the sum of the matrix diagonals and the difference between them', () =>{
@@ -589,6 +599,15 @@ describe('HackerRank Challenges', () =>{
     const result = formingMagicSquare([[5, 3, 4], [1, 5, 8], [6, 4, 2]]);
 
     assert.deepStrictEqual(result, expected);
+  });
+
+  it("Given an array of integers, find the longest subarray where the absolute difference between any two elements is less than or equal to  1", () => {
+    const expected = 3;
+
+    const result = pickingNumbers([4 ,6 ,5 ,3 ,3 ,1]);
+
+    assert.deepStrictEqual(result, expected);
+
   });
 
 });
