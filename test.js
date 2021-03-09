@@ -429,6 +429,20 @@ function pickingNumbers(a) {
   return maxCount;
 }
 
+function hurdleRace(k, height) {
+  const arrayHeight = [...height];
+  const  jumpNaturally = parseInt(k, 10);
+
+  const maximum = Math.max(...arrayHeight);
+
+  if(jumpNaturally < maximum){
+    return maximum - jumpNaturally;
+  }else{
+    return 0;
+  }
+
+}
+
 
 describe('HackerRank Challenges', () =>{
   it('must return the sum of the matrix diagonals and the difference between them', () =>{
@@ -605,6 +619,15 @@ describe('HackerRank Challenges', () =>{
     const expected = 3;
 
     const result = pickingNumbers([4 ,6 ,5 ,3 ,3 ,1]);
+
+    assert.deepStrictEqual(result, expected);
+
+  });
+
+  it(" How many doses of the potion must the character take to be able to jump all of the hurdles. If the character can already clear all of the hurdles, return 0.", () => {
+    const expected = 2;
+
+    const result = hurdleRace(4, [1 ,6 ,3 ,5 ,2]);
 
     assert.deepStrictEqual(result, expected);
 
