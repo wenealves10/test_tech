@@ -443,6 +443,10 @@ function hurdleRace(k, height) {
 
 }
 
+function designerPdfViewer(h, word) {
+  return Math.max(...word.split('').map((e) => h[e.charCodeAt(0) - 97] * word.length));
+}
+
 
 describe('HackerRank Challenges', () =>{
   it('must return the sum of the matrix diagonals and the difference between them', () =>{
@@ -632,5 +636,13 @@ describe('HackerRank Challenges', () =>{
     assert.deepStrictEqual(result, expected);
 
   });
+
+  it("When a contiguous block of text is selected in a PDF viewer, the selection is highlighted with a blue rectangle. In this PDF viewer, each word is highlighted independently.", () => {
+    const expected = 28;
+
+    const result = designerPdfViewer([1 ,3 ,1 ,3 ,1 ,4 ,1 ,3 ,2, 5 ,5 ,5 ,5 ,5 ,5 ,5 ,5 ,5 ,5 ,5 ,5 ,5 ,5 ,5 ,5 ,7], 'zaba');
+
+    assert.deepStrictEqual(result, expected);
+  })
 
 });
