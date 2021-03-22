@@ -8,7 +8,7 @@ function climbingLeaderboard(scores, alice) {
   aliceArray.forEach(element => {
     while (indexLength >= 0){
       if(element >= distScore[indexLength]){
-        i--;
+        indexLength--;
       }else{
         positions.push(indexLength + 2);
         break;
@@ -48,3 +48,7 @@ function climbingLeaderboard2(scores, alice) {
 
   return positions;
 }
+
+console.log(climbingLeaderboard(
+  [100 ,90 ,90 ,80 ,75 ,60], [50 ,65 ,77 ,90 ,102]
+  ))
