@@ -447,6 +447,27 @@ function designerPdfViewer(h, word) {
   return Math.max(...word.split('').map((e) => h[e.charCodeAt(0) - 97] * word.length));
 }
 
+function climbingLeaderboard(scores, alice) {
+  const aliceArray = [...alice];
+  let positions = [];
+  let distScore = [...new Set(scores)];
+  let indexLength = distScore.length - 1;
+  aliceArray.forEach(element => {
+    while (indexLength >= 0){
+      if(element >= distScore[indexLength]){
+        indexLength--;
+      }else{
+        positions.push(indexLength + 2);
+        break;
+      }
+    }
+
+    if(indexLength < 0) positions.push(1)
+  });
+
+  return positions;
+}
+
 
 describe('HackerRank Challenges', () =>{
   it('must return the sum of the matrix diagonals and the difference between them', () =>{
@@ -641,6 +662,16 @@ describe('HackerRank Challenges', () =>{
     const expected = 28;
 
     const result = designerPdfViewer([1 ,3 ,1 ,3 ,1 ,4 ,1 ,3 ,2, 5 ,5 ,5 ,5 ,5 ,5 ,5 ,5 ,5 ,5 ,5 ,5 ,5 ,5 ,5 ,5 ,7], 'zaba');
+
+    assert.deepStrictEqual(result, expected);
+  });
+
+  it("In this challenge, the leaderboard should return the player very good.", () => {
+    const expected =  [ 6, 5, 4, 2, 1 ];
+
+    const result = climbingLeaderboard(
+      [100 ,90 ,90 ,80 ,75 ,60], [50 ,65 ,77 ,90 ,102]
+      );
 
     assert.deepStrictEqual(result, expected);
   })
