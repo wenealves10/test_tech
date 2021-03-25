@@ -468,6 +468,23 @@ function climbingLeaderboard(scores, alice) {
   return positions;
 }
 
+function utopianTree(n) {
+  const growthCycles = parseInt(n, 10);
+  let height = 2;
+
+  if(growthCycles <= 0)  return 1;
+  for(let index = 2; index <=  growthCycles; index++){
+    if(index % 2 === 0){
+      height += 1;
+    }else{
+      height += height;
+    }
+  }
+
+  return height;
+
+}
+
 
 describe('HackerRank Challenges', () =>{
   it('must return the sum of the matrix diagonals and the difference between them', () =>{
@@ -672,6 +689,14 @@ describe('HackerRank Challenges', () =>{
     const result = climbingLeaderboard(
       [100 ,90 ,90 ,80 ,75 ,60], [50 ,65 ,77 ,90 ,102]
       );
+
+    assert.deepStrictEqual(result, expected);
+  });
+
+  it("In this challenge, It must return an integer of growth cycles in the spring", () => {
+    const expected = 7;
+
+    const result = utopianTree(4);
 
     assert.deepStrictEqual(result, expected);
   })
