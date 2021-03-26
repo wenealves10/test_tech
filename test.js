@@ -485,6 +485,23 @@ function utopianTree(n) {
 
 }
 
+function angryProfessor(k, a) {
+  const thresholdStudents = parseInt(k, 10);
+  const arrayOfTimes = [...a];
+  let isClass = false;
+  let arrivedEarly = 0;
+
+
+  arrayOfTimes.forEach(timeStudent => {
+    if(timeStudent <= 0){
+      arrivedEarly++;
+    }
+  });
+
+  return arrivedEarly >= thresholdStudents ? 'No' : 'Yes';
+
+}
+
 
 describe('HackerRank Challenges', () =>{
   it('must return the sum of the matrix diagonals and the difference between them', () =>{
@@ -699,6 +716,14 @@ describe('HackerRank Challenges', () =>{
     const result = utopianTree(4);
 
     assert.deepStrictEqual(result, expected);
-  })
+  });
+
+  it("In this challenge, It must return an string 'Yes' or 'No' if class is cancelled", () => {
+    const expected = 'No';
+
+    const result = angryProfessor(2, [0 ,-1 ,2 ,1]);
+
+    assert.deepStrictEqual(result, expected);
+  });
 
 });
